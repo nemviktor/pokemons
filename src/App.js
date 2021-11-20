@@ -1,23 +1,23 @@
 import './App.css';
 import Header from './components/Header';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import { Route, Routes } from "react-router";
 import React from 'react';
+import Pokemons from './components/Pokemons';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <BrowserRouter>
-        <Routes>
+      <Pokemons />
+{/*       <Routes>
 
-          <Route exact path="/">
+        <Route exact path="/">
             <React.Fragment>
-              hello
+              <Pokemons />
             </React.Fragment>
-          </Route>
-          
-        </Routes>
-      </BrowserRouter>
+        </Route>
+
+      </Routes>    */} 
     </div>
   );
 }
