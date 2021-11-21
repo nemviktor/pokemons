@@ -5,14 +5,18 @@
   position: relative;
 
   .bg-image-container {
-    position: fixed;
+    position: absolute;
     top: 0%;
     height: 100vh;
-    margin: 10px;
+    width: 100%;
     background-image: url('./img/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     filter: blur(5px);
+  }
+
+  .content-container {
+    position: relative;
   }
 }
 

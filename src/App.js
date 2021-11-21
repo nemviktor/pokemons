@@ -8,8 +8,9 @@ function App() {
   return (
     <div className="App">
       <div className="bg-image-container"></div>
-      <Header />
-      <Pokemons />
+      <div className="content-container">
+        <Header />
+        <Pokemons />
 {/*       <Routes>
 
         <Route exact path="/">
@@ -18,7 +19,8 @@ function App() {
             </React.Fragment>
         </Route>
 
-      </Routes>    */} 
+      </Routes>    */}
+      </div> 
     </div>
   );
 }
