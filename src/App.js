@@ -19,7 +19,7 @@ function App() {
 
           <Route exact path="/types" element={ <PokemonTypes /> }></Route>
 
-          <Route path="/pokemon/" element={ <PokemonDetail /> }></Route>
+          <Route exact path="/pokemon/:id" element={ <PokemonDetail /> }></Route>
 
         </Routes>   
       </div> 
