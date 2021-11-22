@@ -21,11 +21,13 @@ export default function Pokemons() {
 
     return (
         
-        <div className="pokemons-container">
-          {pokemons ? pokemons.map((pokemon) => {
-            return <PokemonCard pokemon={pokemon} key={ pokemon.id }/>
-          }) : ""
-          }
-        </div>
+        <React.Fragment>
+          <div className="pokemons-container">
+            {pokemons ? pokemons.map((pokemon) => {
+              return <PokemonCard pokemon={pokemon} key={ pokemon.id }/>
+            }) : ""
+            }
+          </div>
+        </React.Fragment>
     )
 }

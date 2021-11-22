@@ -1,8 +1,9 @@
 import './App.scss';
 import Header from './components/Header';
-// import { Route, Routes } from "react-router";
+import { Routes, Route } from 'react-router-dom';
 import React from 'react';
 import Pokemons from './components/Pokemons';
+
 
 function App() {
   return (
@@ -10,16 +11,13 @@ function App() {
       <div className="bg-image-container"></div>
       <div className="content-container">
         <Header />
-        <Pokemons />
-{/*       <Routes>
+        <Routes>
 
-        <Route exact path="/">
-            <React.Fragment>
-              <Pokemons />
-            </React.Fragment>
-        </Route>
+          <Route exact path="/" element={ <Pokemons /> }></Route>
 
-      </Routes>    */}
+          {/* <Route exact path="/types" element={ <PokemonTypes /> }></Route> */}
+
+        </Routes>   
       </div> 
     </div>
   );

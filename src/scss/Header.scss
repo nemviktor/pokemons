@@ -2,4 +2,13 @@
 header {
     padding: unset;
     margin: unset;
+
+    .link>img {
+        max-height: 150px;
+        transition: all .2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
 }
