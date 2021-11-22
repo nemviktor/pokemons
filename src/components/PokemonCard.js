@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../scss/PokemonCard.scss';
 
 const PokemonCard = (props) => {
@@ -10,14 +11,15 @@ const PokemonCard = (props) => {
     useEffect(() => {
         axios.get(props.pokemon.url)
         .then(resp => {
-            console.log(resp.data);
             setPokemon(resp.data);
         })
     }, [])
 
     return (
         <div className="pokemon-card">
-            { pokemon ? <img src={ pokemon.sprites.front_default } ></img>
+            { pokemon ? <Link to={"/pokemon/" + pokemon.id}>
+                            <img src={ pokemon.sprites.front_default } ></img>
+                        </Link>
             : ""}
             <p>{ props.pokemon.name.toUpperCase() }</p>
         </div>

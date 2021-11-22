@@ -23,7 +23,7 @@ export default function Pokemons() {
         
         <div className="pokemons-container">
           {pokemons ? pokemons.map((pokemon) => {
-            return <PokemonCard pokemon={pokemon}/>
+            return <PokemonCard pokemon={pokemon} key={ pokemon.id }/>
           }) : ""
           }
         </div>
