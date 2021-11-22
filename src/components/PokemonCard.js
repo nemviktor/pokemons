@@ -18,7 +18,7 @@ const PokemonCard = (props) => {
     return (
         <div className="pokemon-card">
             { pokemon ? <Link to={"/pokemon/" + pokemon.id}>
-                            <img src={ pokemon.sprites.front_default } ></img>
+                            <img src={ pokemon.sprites.front_default } alt="pokemon"></img>
                         </Link>
             : ""}
             <p>{ props.pokemon.name.toUpperCase() }</p>
