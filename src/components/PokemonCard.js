@@ -13,14 +13,13 @@ const PokemonCard = (props) => {
         .then(resp => {
             setPokemon(resp.data);
         })
-    }, [])
+    }, [props.pokemon.url])
 
     return (
         <div className="pokemon-card">
-            { pokemon ? <Link to={{
-                            pathname:`/pokemon/${pokemon.id}`,
-                            state: {pokemon : pokemon}
-                        }}>
+            { pokemon ? <Link to={ `/pokemon/${pokemon.id}` }
+                            state={ {pokemon : pokemon} }
+                        >
                                 <img src={ pokemon.sprites.front_default } alt="pokemon"></img>
                         </Link>
             : ""}
