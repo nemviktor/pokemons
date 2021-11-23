@@ -1,7 +1,7 @@
 
 .detailed-pokemon-container {
     padding: 20px;
-    max-width: 70vw;
+    max-width: 50vw;
     background-color: rgb(255,255,255,0.6);
     margin: auto;
     display: flex;
@@ -9,32 +9,36 @@
     border-radius: 20px;
     align-items: center;
 
-    .catch-btn {
-        height: min-content;
-        background-color: rgb(0,0,0,0);
-        border: unset;
-        img {
-            width: 100px;
-            transition: all .2s ease-in-out;
-
-            &:hover {
-                transform: scale(1.05);
-            }
-
-            /*Ball when pokemon is inside*/
-            .pokemon-inside {
-                /* Start the shake animation and make the animation last for 0.5 seconds */
-                animation: shake 1s;
-                /* When the animation is finished, start again */
-                animation-iteration-count: infinite
+    .catch-pokemon-container {
+        >img {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 100%;
+            min-width: 15vw;
+        }
+        .catch-btn {
+            position: relative;
+            top: 0;
+            left: -5vw;
+            height: min-content;
+            background-color: rgb(0,0,0,0);
+            border: unset;
+            img {
+                width: 100px;
+                transition: all .2s ease-in-out;
+    
+                &:hover {
+                    transform: scale(1.1);
+                }
+    
+                /*Ball when pokemon is inside*/
+                &.pokemon-inside {
+                    /* Start the shake animation and make the animation last for 0.5 seconds */
+                    animation: shake 1s;
+                    /* When the animation is finished, start again */
+                    animation-iteration-count: infinite
+                }
             }
         }
-    }
-
-    >img {
-        background-color: rgb(0,0,0, 0.3);
-        border-radius: 20px;
-        min-width: 20vw;
     }
 }
   

@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../scss/PokemonDetailed.scss';
 import Pokeball from "../img/Pokeball.png";
+import PokemonInventoryContext from '../context/PokemonInventoryContext';
 
 
 const PokemonDetail = _ => {
 
     const { state } = useLocation();
+    const [pokemonInside, setPokemonInside] = useState(false);
+    const context = useContext(PokemonInventoryContext)
+
+
 
     const pokemonData = state
     ? {
@@ -19,12 +24,21 @@ const PokemonDetail = _ => {
       }
     : [];
 
+
+    const catchPokemon = (event) => {
+        pokemonInside ? setPokemonInside(false) : setPokemonInside(true);
+        context.collectPokemon(state.pokemon);
+    }
+
+
     return (
         <div className="detailed-pokemon-container">
-            <button className="catch-btn" type="button">
-                <img src={ Pokeball } ></img>
-            </button>
-            <img src={pokemonData.imageUrl} alt={pokemonData.name} />
+            <div className="catch-pokemon-container">
+                <img src={pokemonData.imageUrl} alt={pokemonData.name} />
+                <button className="catch-btn" type="button" onClick={ catchPokemon }>
+                    <img src={ Pokeball } className={pokemonInside ? "pokemon-inside" : ""} alt="pokeball"></img>
+                </button>
+            </div>
             <div className="pokemon-detailed-properties">
                 <h2>{pokemonData.name}</h2>
                 <p>Height: {pokemonData.height} dm</p>
