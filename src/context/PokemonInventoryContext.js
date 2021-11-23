@@ -8,7 +8,7 @@ const PokemonInventoryContext = createContext({
 
 export const PokemonInventoryProvider = (props) =>{
 
-    const [pokemonList, setPokemonList] = useState([]);
+    const [pokemonList] = useState([]);
 
     const addPokemon =  (pokemon) =>{
         pokemonList.push(pokemon)

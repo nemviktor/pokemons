@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../scss/PokemonDetailed.scss';
 import Pokeball from "../img/Pokeball.png";
@@ -8,7 +8,7 @@ import PokemonInventoryContext from '../context/PokemonInventoryContext';
 const PokemonDetail = _ => {
 
     const { state } = useLocation();
-    const [pokemonInside, setPokemonInside] = useState(false);
+    const [ballShaking, setBallShaking] = useState(false);
     const context = useContext(PokemonInventoryContext)
 
 
@@ -25,9 +25,27 @@ const PokemonDetail = _ => {
     : [];
 
 
-    const catchPokemon = (event) => {
-        pokemonInside ? setPokemonInside(false) : setPokemonInside(true);
-        context.collectPokemon(state.pokemon);
+    useEffect(() => {
+        const catchPokemon = () => {
+            setBallShaking(false);
+            let success = Math.random();
+            if (success > 0.8) {
+                alert("You catched this pokemon.");
+                context.collectPokemon(state.pokemon);
+            } else {
+                alert("You didn't catch this pokemon.");
+            }
+        }
+        if (ballShaking) {
+            setTimeout(() => catchPokemon(), 5000);
+        }
+      }, [ballShaking, context, state])
+
+
+    const shakeBall = (event) => {
+        if (!ballShaking) {
+            setBallShaking(true);
+        }
     }
 
 
@@ -35,8 +53,8 @@ const PokemonDetail = _ => {
         <div className="detailed-pokemon-container">
             <div className="catch-pokemon-container">
                 <img src={pokemonData.imageUrl} alt={pokemonData.name} />
-                <button className="catch-btn" type="button" onClick={ catchPokemon }>
-                    <img src={ Pokeball } className={pokemonInside ? "pokemon-inside" : ""} alt="pokeball"></img>
+                <button className="catch-btn" type="button" onClick={ shakeBall }>
+                    <img src={ Pokeball } className={ballShaking ? "pokemon-inside" : ""} alt="pokeball"></img>
                 </button>
             </div>
             <div className="pokemon-detailed-properties">
