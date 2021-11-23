@@ -9,8 +9,7 @@ const PokemonDetail = _ => {
 
     const { state } = useLocation();
     const [ballShaking, setBallShaking] = useState(false);
-    const context = useContext(PokemonInventoryContext)
-
+    const context = useContext(PokemonInventoryContext);
 
 
     const pokemonData = state
@@ -29,7 +28,7 @@ const PokemonDetail = _ => {
         const catchPokemon = () => {
             setBallShaking(false);
             let success = Math.random();
-            if (success > 0.8) {
+            if (success > 0.75) {
                 alert("You catched this pokemon.");
                 context.collectPokemon(state.pokemon);
             } else {
