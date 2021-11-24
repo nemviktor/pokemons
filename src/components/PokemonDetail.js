@@ -28,7 +28,7 @@ const PokemonDetail = _ => {
         const catchPokemon = () => {
             setBallShaking(false);
             let success = Math.random();
-            if (success > 0.75) {
+            if (success > 0.4) {
                 alert("You catched this pokemon.");
                 context.collectPokemon(state.pokemon);
             } else {
@@ -36,7 +36,7 @@ const PokemonDetail = _ => {
             }
         }
         if (ballShaking) {
-            setTimeout(() => catchPokemon(), 5000);
+            setTimeout(() => catchPokemon(), 3000);
         }
       }, [ballShaking, context, state])
 

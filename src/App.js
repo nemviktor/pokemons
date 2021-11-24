@@ -5,9 +5,11 @@ import React from 'react';
 import Pokemons from './components/Pokemons';
 import PokemonTypes from './components/PokemonTypes';
 import PokemonDetail from './components/PokemonDetail';
+import CarouselComponent from "./components/Carousel";
 
 
 function App() {
+
   return (
     <div className="App">
       <div className="bg-image-container"></div>
@@ -21,7 +23,8 @@ function App() {
 
           <Route exact path="/pokemon/:id" element={ <PokemonDetail /> }></Route>
 
-        </Routes>   
+        </Routes> 
+        <CarouselComponent />
       </div> 
     </div>
   );

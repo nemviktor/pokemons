@@ -12,7 +12,6 @@ export const PokemonInventoryProvider = (props) =>{
 
     const addPokemon =  (pokemon) =>{
         pokemonList.push(pokemon)
-        console.log(pokemonList);
     }
 
     return <PokemonInventoryContext.Provider
