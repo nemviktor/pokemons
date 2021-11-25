@@ -2,24 +2,27 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import React, { useContext, useEffect } from 'react';
 import PokemonInventoryContext from '../context/PokemonInventoryContext';
+import '../scss/Carousel.scss';
 
 
 
 const CarouselComponent = () => {
 
     const context = useContext(PokemonInventoryContext);
-    
-    console.log(context.pokemons)
 
     return (
         <div className="carousel-wrapper">
-{/*             <Carousel>
+            <p>THESE POKEMONS ARE FIGHTING WITH YOU</p>
+            <Carousel infiniteLoop useKeyboardArrows autoPlay>
                 { context.pokemons.map((pokemon) => {
                     return (
-                        <p> {pokemon}</p>
+                        <div>
+                            <img src={ pokemon.sprites.front_default } />
+                        </div>
                     )
-                }) } 
-            </Carousel> */}
+                  })
+                } 
+            </Carousel>
         </div>
     );
 }

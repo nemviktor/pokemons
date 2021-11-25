@@ -2,16 +2,17 @@ import React, {useState, createContext} from 'react';
 
 
 const PokemonInventoryContext = createContext({
-    pokemons: [],
+    pokemons: null,
     collectPokemon: () =>{},
 });
 
 export const PokemonInventoryProvider = (props) =>{
 
-    const [pokemonList] = useState([]);
+    const [pokemonList, setPokemonList] = useState([]);
 
     const addPokemon =  (pokemon) =>{
-        pokemonList.push(pokemon)
+        let newPokemonList = [...pokemonList, pokemon]
+        setPokemonList(newPokemonList);
     }
 
     return <PokemonInventoryContext.Provider
